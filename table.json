@@ -1,0 +1,42 @@
+[
+    {
+        "mode": "REQUIRED",
+        "name": "ID",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "REQUIRED",
+        "name": "LOCATION_LOGI",
+        "type": "FLOAT"
+    },
+    {
+        "mode": "REQUIRED",
+        "name": "LOCATION_LATI",
+        "type": "FLOAT"
+    },
+    {
+        "mode": "REQUIRED",
+        "name": "DEVICE_DATETIME",
+        "type": "DATETIME"
+    },
+    {
+        "mode": "REQUIRED",
+        "name": "TEMPERATURE",
+        "type": "FLOAT"
+    },
+    {
+        "mode": "REQUIRED",
+        "name": "PRESSURE",
+        "type": "FLOAT"
+    },
+    {
+        "mode": "REQUIRED",
+        "name": "HUMIDITY",
+        "type": "FLOAT"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "TIMESTAMP",
+        "type": "TIMESTAMP"
+    }
+]
