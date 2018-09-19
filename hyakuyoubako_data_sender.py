@@ -179,7 +179,9 @@ def compensate_H(adc_H):
         global t_fine
         var_h = t_fine - 76800.0
         if var_h != 0:
-                var_h = (adc_H - (digH[3] * 64.0 + digH[4]/16384.0 * var_h)) * (digH[1] / 65536.0 * (1.0 + digH[5] / 67108864.0 * var_h * (1.0 + digH[2] / 67108864.0 * var_h)))
+                var_h = (adc_H - (digH[3] * 64.0 + digH[4]/16384.0 * var_h)) *\
+                    (digH[1] / 65536.0 * (1.0 + digH[5] / 67108864.0 * var_h *\
+                        (1.0 + digH[2] / 67108864.0 * var_h)))
         else:
                 return 0
         var_h = var_h * (1.0 - digH[0] * var_h / 524288.0)
@@ -199,7 +201,8 @@ def readData():
         hum_raw  = (data[6] << 8)  |  data[7]
         
 
-        datas = {'temperature':compensate_T(temp_raw) ,'pressure':compensate_P(pres_raw), 'humidity':compensate_H(hum_raw)}
+        datas = {'temperature':compensate_T(temp_raw) ,\
+                'pressure':compensate_P(pres_raw), 'humidity':compensate_H(hum_raw)}
  
         return datas
        
@@ -214,7 +217,8 @@ def create_message(id, logitude, latitude):
         "DEVICE_DATETIME":"{}",\
         "TEMPERATURE":"{}",\
         "PRESSURE":"{}",\
-        "HUMIDITY":"{}"}}'.format(id, logitude, latitude, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),datas['temperature'] ,datas['pressure'] ,datas['humidity'])
+        "HUMIDITY":"{}"}}'.format(id, logitude, latitude, datetime.datetime.now().\
+            strftime('%Y-%m-%d %H:%M:%S'),datas['temperature'] ,datas['pressure'] ,datas['humidity'])
     return message
 
 
